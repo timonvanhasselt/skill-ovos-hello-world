@@ -73,11 +73,8 @@ class HelloWorldSkill(OVOSSkill):
     @intent_handler(IntentBuilder("ThankYouIntent").require("ThankYouKeyword"))
     def handle_thank_you_intent(self, message):
         """This is an Adapt intent handler, it is triggered by a keyword."""
-        text = self.dialog_renderer.render("welcome")
-        self.gui.show_text(text)
         self.speak_dialog("welcome")
         
-
     @intent_handler(IntentBuilder("HelloWorldIntent").require("HelloWorldKeyword"))
     def handle_hello_world_intent(self, message):
         """
@@ -96,16 +93,12 @@ class HelloWorldSkill(OVOSSkill):
 
     @intent_handler("Greetings.intent")
     def handle_greetings(self, message):
-        text = self.dialog_renderer.render("hello")
-        self.gui.show_text(text)
         self.speak_dialog("hello")
 
     @intent_handler("HowAreYou.intent")
     def handle_how_are_you_intent(self, message):
         """This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
-        text = self.dialog_renderer.render("how.are.you")
-        self.gui.show_text(text)
         self.speak_dialog("how.are.you")
         
         LOG.info("There are five types of log messages: 'info', 'debug', 'warning', 'error', and 'exception'.")
